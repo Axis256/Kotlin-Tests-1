@@ -1,10 +1,7 @@
 package testcases
 
 import org.openqa.selenium.WebDriver
-import org.openqa.selenium.WebElement
 import org.openqa.selenium.interactions.Actions
-import org.openqa.selenium.support.FindBy
-import pages.LoginPage
 import pages.MainPage
 import elements.*
 import util.pressEscKey

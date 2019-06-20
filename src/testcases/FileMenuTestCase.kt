@@ -165,6 +165,7 @@ class FileMenuTestCase(private val driver: WebDriver, private val page: MainPage
         fileMenu.fileMenuButton.click()
         fileMenu.deleteMenuItem.click()
         Thread.sleep(500)
+
         pressEscKey(driver)
         Thread.sleep(1000)
     }
