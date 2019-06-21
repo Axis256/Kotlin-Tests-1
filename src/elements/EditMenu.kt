@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy
 import org.openqa.selenium.support.PageFactory
 import org.openqa.selenium.support.ui.ExpectedConditions
 import org.openqa.selenium.support.ui.WebDriverWait
-import util.pressEscKey
+import util.closeOuterPanel
 
 class EditMenu(private val driver: WebDriver) {
 
@@ -53,6 +53,6 @@ class EditMenu(private val driver: WebDriver) {
         createCopyMenuItem = editMenuItems[10]
         selectAllMenuItem = editMenuItems[11]
         findAndReplaceMenuItem = editMenuItems[13]
-        pressEscKey(driver)
+        closeOuterPanel(driver)
     }
 }

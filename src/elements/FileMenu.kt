@@ -1,5 +1,6 @@
 package elements
 
+import org.omg.PortableServer.THREAD_POLICY_ID
 import util.*
 import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
@@ -105,6 +106,7 @@ class FileMenu(private val driver: WebDriver) {
     init {
         PageFactory.initElements(driver, this)
         WebDriverWait(driver, 10).until<WebElement>(ExpectedConditions.elementToBeClickable(fileMenuButton)).click()
+
         fileMenuItems = menuPanel.findElements(By.xpath("./*"))
         sharedAccessMenuItem = fileMenuItems[2]
         createMenuItem = fileMenuItems[4]
@@ -125,6 +127,7 @@ class FileMenu(private val driver: WebDriver) {
         settingsMenuItem = fileMenuItems[25]
         printSettingsMenuItem = fileMenuItems[26]
         printMenuItem = fileMenuItems[27]
+
         createMenuItem.click()
         createMenuItems = getPanelItems(driver, 1)
         createDocMenuItem = createMenuItems[0]
@@ -133,6 +136,7 @@ class FileMenu(private val driver: WebDriver) {
         createFormMenuItem = createMenuItems[3]
         createDrawingMenuItem = createMenuItems[4]
         createTemplateMenuItem = createMenuItems[5]
+
         downloadAsMenuItem.click()
         downloadAsMenuItems = getPanelItems(driver, 1)
         pptxMenuItem = downloadAsMenuItems[0]
@@ -142,14 +146,17 @@ class FileMenu(private val driver: WebDriver) {
         jpegMenuItem = downloadAsMenuItems[5]
         pngMenuItem = downloadAsMenuItems[6]
         svgMenuItem = downloadAsMenuItems[7]
+
         versionHistoryMenuItem.click()
         versionHistoryMenuItems = getPanelItems(driver, 2)
         createVersionMenuItem = versionHistoryMenuItems[0]
         reviseVersionsMenuItem = versionHistoryMenuItems[1]
+
+        Thread.sleep(200)
         languageMenuItem.click()
         languageMenuItems = getPanelItems(driver, 3)
         engMenuItem = languageMenuItems[11]
         rusMenuItem = languageMenuItems[47]
-        pressEscKey(driver)
+        closeOuterPanel(driver)
     }
 }

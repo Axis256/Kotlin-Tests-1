@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory
 import org.openqa.selenium.support.ui.ExpectedConditions
 import org.openqa.selenium.support.ui.WebDriverWait
 import util.getPanelItems
-import util.pressEscKey
+import util.closeOuterPanel
 
 class ViewMenu(private val driver: WebDriver) {
 
@@ -102,6 +102,6 @@ class ViewMenu(private val driver: WebDriver) {
         bindingItemsList = getPanelItems(driver, 1)
         bindToRulerMenuItem = bindingItemsList[0]
         bindtoGuidelinesMenuItem = bindingItemsList[1]
-        pressEscKey(driver)
+        closeOuterPanel(driver)
     }
 }

@@ -21,9 +21,29 @@ fun printInfoMsg(msg: String?){
     println("\u001B[36m $msg  \u001B[0m")
 }
 
-fun pressEscKey(driver: WebDriver){
+fun closeOuterPanel(driver: WebDriver){
     val action = Actions(driver)
+    Thread.sleep(300)
     action.sendKeys(Keys.ESCAPE).perform()
+    Thread.sleep(300)
+}
+
+fun undo(driver: WebDriver){
+    val action = Actions(driver)
+    action.keyDown(Keys.CONTROL)
+        .sendKeys("z")
+        .keyUp(Keys.CONTROL)
+        .perform()
+}
+
+fun selectAll(driver: WebDriver){
+    val action = Actions(driver)
+    driver.findElement(By.id("workspace-container")).click()
+    closeOuterPanel(driver)
+    action.keyDown(Keys.CONTROL)
+        .sendKeys("a")
+        .keyUp(Keys.CONTROL)
+        .perform()
 }
 
 fun waitForPresence(driver: WebDriver, time: Long, element: String){

@@ -57,7 +57,7 @@ class MainPage(private val driver: WebDriver) {
     private lateinit var copyElementButton: WebElement
 
     @FindBy(xpath = "//div[@id='workspace-container']")
-    private lateinit var textField: WebElement
+    lateinit var textField: WebElement
 
     @FindBy(xpath = "//*[@class='punch-filmstrip-thumbnail-background']")
     lateinit var firstSlide: WebElement
@@ -65,48 +65,4 @@ class MainPage(private val driver: WebDriver) {
     init {
         PageFactory.initElements(driver, this)
     }
-
-    /*fun testClick(){
-        val fileMenu = FileMenu(driver)
-
-        val wait = WebDriverWait(driver, 10)
-        wait.until<WebElement>(ExpectedConditions.elementToBeClickable(fileMenu))
-        cycleMenuItems()
-        pressEscKey(driver)
-        //driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS)
-        fileMenu.click()
-        slideImportMenuItem.click()
-        pressEscKey(driver)
-        fileMenu.click()
-        //driver.manage().window().fullscreen()
-        //driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS)
-        createCopyMenuItem.click()
-        pressEscKey(driver)
-        //driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS)
-        Actions(driver).moveToElement(firstSlide).click().perform()
-        editMenu.click()
-        highlight(copyElementButton, driver)
-        //copyElementButton.click()
-        //Actions(driver).moveToElement(copyElementButton).click().perform()
-        wait.until<WebElement>(ExpectedConditions.elementToBeClickable(copyElementButton)).click()
-        editMenu.click()
-        undoButton.click()
-        editMenu.click()
-        redoButton.click()
-        editMenu.click()
-        undoButton.click()
-    }
-
-    private fun cycleMenuItems(){
-        fileMenu.click()
-        editMenu.click()
-        viewMenu.click()
-        insertMenu.click()
-        formatMenu.click()
-        slideMenu.click()
-        arrangeMenu.click()
-        toolsMenu.click()
-        extensionsMenu.click()
-        //helpMenu.click()
-    }*/
 }

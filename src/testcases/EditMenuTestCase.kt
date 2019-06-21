@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver
 import org.openqa.selenium.interactions.Actions
 import pages.MainPage
 import elements.*
-import util.pressEscKey
+import util.closeOuterPanel
 
 class EditMenuTestCase(private val driver: WebDriver) {
 
@@ -16,7 +16,7 @@ class EditMenuTestCase(private val driver: WebDriver) {
         editMenu = EditMenu(driver)
     }
 
-    fun runAllTests(){
+    fun RunAllTests(){
         Actions(driver).moveToElement(mainPage.firstSlide).click().perform()
         CreateCopyTest()
         UndoTest()
@@ -53,15 +53,13 @@ class EditMenuTestCase(private val driver: WebDriver) {
     private fun PasteTest(){
         editMenu.editMenuButton.click()
         editMenu.pasteMenuItem.click()
-        pressEscKey(driver)
-        Thread.sleep(500)
+        closeOuterPanel(driver)
     }
 
     private fun PasteWithoutFormatingTest(){
         editMenu.editMenuButton.click()
         editMenu.pasteWithoutFormatingMenuItem.click()
-        pressEscKey(driver)
-        Thread.sleep(500)
+        closeOuterPanel(driver)
     }
 
     private fun DeleteTest(){
@@ -83,7 +81,7 @@ class EditMenuTestCase(private val driver: WebDriver) {
     private fun FindAndReplaceTest(){
         editMenu.editMenuButton.click()
         editMenu.findAndReplaceMenuItem.click()
-        pressEscKey(driver)
+        closeOuterPanel(driver)
     }
 
 }

@@ -3,9 +3,9 @@ package testcases
 import org.openqa.selenium.WebDriver
 import pages.MainPage
 import elements.ViewMenu
-import util.pressEscKey
+import util.closeOuterPanel
 
-class ViewMenuTest(private val driver: WebDriver) {
+class ViewMenuTestCase(private val driver: WebDriver) {
 
     val mainPage: MainPage
     val viewMenu: ViewMenu
@@ -32,13 +32,13 @@ class ViewMenuTest(private val driver: WebDriver) {
         viewMenu.viewMenuButton.click()
         viewMenu.watchMenuItem.click()
         Thread.sleep(2000)
-        pressEscKey(driver)
+        closeOuterPanel(driver)
     }
 
     private fun AnimationTest(){
         viewMenu.viewMenuButton.click()
         viewMenu.animationMenuItem.click()
-        pressEscKey(driver)
+        closeOuterPanel(driver)
     }
 
     private fun MasterTest(){
@@ -93,8 +93,7 @@ class ViewMenuTest(private val driver: WebDriver) {
         viewMenu.viewMenuButton.click()
         viewMenu.guidelineMenuItem.click()
         viewMenu.changeGuidelines.click()
-        pressEscKey(driver)
-        Thread.sleep(300)
+        closeOuterPanel(driver)
         viewMenu.viewMenuButton.click()
         viewMenu.guidelineMenuItem.click()
         viewMenu.hideGuidelines.click()
@@ -117,6 +116,6 @@ class ViewMenuTest(private val driver: WebDriver) {
     private fun FullscreenTest(){
         viewMenu.viewMenuButton.click()
         viewMenu.fullscreeMenuItem.click()
-        pressEscKey(driver)
+        closeOuterPanel(driver)
     }
 }

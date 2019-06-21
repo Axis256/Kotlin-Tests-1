@@ -6,7 +6,7 @@ import elements.*
 import org.openqa.selenium.support.ui.WebDriverWait
 import util.GuarantiedClick
 import util.closeNewTab
-import util.pressEscKey
+import util.closeOuterPanel
 
 class FileMenuTestCase(private val driver: WebDriver, private val page: MainPage) {
 
@@ -14,7 +14,7 @@ class FileMenuTestCase(private val driver: WebDriver, private val page: MainPage
 
     val wait = WebDriverWait(driver, 10)
 
-    fun runAllTests() {
+    fun RunAllTests() {
         SharedAccessTest()
         //CreateTest()
         OpenTest()
@@ -32,16 +32,13 @@ class FileMenuTestCase(private val driver: WebDriver, private val page: MainPage
         LanguageTest()
         SettingsTest()
         PrintSettingsTest()
-        PrintTest()
+        //PrintTest()
     }
 
     private fun SharedAccessTest() {
         fileMenu.fileMenuButton.click()
         fileMenu.sharedAccessMenuItem.click()
-        //wait.until<WebElement>(ExpectedConditions.elementToBeClickable(fileMenu.sharedAccessDoneButton)).click()
-        //fileMenu.sharedAccessDoneButton.click()
-        Thread.sleep(500)
-        pressEscKey(driver)
+        closeOuterPanel(driver)
     }
 
     private fun CreateTest() {
@@ -74,20 +71,19 @@ class FileMenuTestCase(private val driver: WebDriver, private val page: MainPage
     private fun OpenTest() {
         fileMenu.fileMenuButton.click()
         fileMenu.openMenuItem.click()
-        pressEscKey(driver)
+        closeOuterPanel(driver)
     }
 
     private fun SlideImportTest() {
         fileMenu.fileMenuButton.click()
         fileMenu.slideImportMenuItem.click()
-        pressEscKey(driver)
+        closeOuterPanel(driver)
     }
 
     private fun CreateCopyTest() {
         fileMenu.fileMenuButton.click()
         fileMenu.createCopyMenuItem.click()
-        pressEscKey(driver)
-        Thread.sleep(500)
+        closeOuterPanel(driver)
     }
 
     private fun DownloadTest() {
@@ -123,66 +119,56 @@ class FileMenuTestCase(private val driver: WebDriver, private val page: MainPage
     private fun AttachTest() {
         fileMenu.fileMenuButton.click()
         fileMenu.attachToEmailMenuItem.click()
-        pressEscKey(driver)
-        Thread.sleep(500)
+        closeOuterPanel(driver)
     }
 
     private fun OfflineAccessTest() {
         fileMenu.fileMenuButton.click()
         fileMenu.offlineAccessMenuItem.click()
-        pressEscKey(driver)
-        Thread.sleep(500)
+        closeOuterPanel(driver)
     }
 
     private fun VersionHistoryTest() {
         fileMenu.fileMenuButton.click()
         fileMenu.versionHistoryMenuItem.click()
         fileMenu.createVersionMenuItem.click()
-        Thread.sleep(500)
-        pressEscKey(driver)
-        Thread.sleep(500)
+        closeOuterPanel(driver)
 
         GuarantiedClick(driver, 5, fileMenu.fileMenuButton)
         fileMenu.versionHistoryMenuItem.click()
         fileMenu.reviseVersionsMenuItem.click()
-        Thread.sleep(1000)
-        pressEscKey(driver)
+        closeOuterPanel(driver)
     }
 
     private fun RenameTest() {
         GuarantiedClick(driver, 10, fileMenu.fileMenuButton)
         fileMenu.renameMenuItem.click()
-        pressEscKey(driver)
+        closeOuterPanel(driver)
     }
 
     private fun MoveTest() {
         fileMenu.fileMenuButton.click()
         fileMenu.moveToMenuItem.click()
-        pressEscKey(driver)
+        closeOuterPanel(driver)
     }
 
     private fun DeleteTest() {
         fileMenu.fileMenuButton.click()
         fileMenu.deleteMenuItem.click()
+        closeOuterPanel(driver)
         Thread.sleep(500)
-
-        pressEscKey(driver)
-        Thread.sleep(1000)
     }
 
     private fun PublishTest() {
         GuarantiedClick(driver, 5, fileMenu.fileMenuButton)
         fileMenu.publishMenuItem.click()
-        Thread.sleep(500)
-        pressEscKey(driver)
+        closeOuterPanel(driver)
     }
 
     private fun InfoTest() {
         fileMenu.fileMenuButton.click()
         fileMenu.docInfoMenuItem.click()
-        Thread.sleep(500)
-        pressEscKey(driver)
-        Thread.sleep(500)
+        closeOuterPanel(driver)
     }
 
     private fun LanguageTest() {
@@ -198,20 +184,19 @@ class FileMenuTestCase(private val driver: WebDriver, private val page: MainPage
     private fun SettingsTest() {
         fileMenu.fileMenuButton.click()
         fileMenu.settingsMenuItem.click()
-        pressEscKey(driver)
-        Thread.sleep(500)
+        closeOuterPanel(driver)
     }
 
     private fun PrintSettingsTest() {
         fileMenu.fileMenuButton.click()
         fileMenu.printSettingsMenuItem.click()
         fileMenu.printPreviewCloseButton.click()
-        Thread.sleep(500)
     }
 
     private fun PrintTest() {
         fileMenu.fileMenuButton.click()
         fileMenu.printMenuItem.click()
-        pressEscKey(driver)
+        closeOuterPanel(driver)
+        //closeOuterPanel(driver)
     }
 }
